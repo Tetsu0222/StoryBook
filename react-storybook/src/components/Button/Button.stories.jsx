@@ -1,10 +1,9 @@
 
 import Button from '../Button/Button';
 
-//titleを変更
 export default{
-    title: 'Common/Button', //この記述によって、サイドメニューを階層化できる。
-    component: Button,      //エラーが出ることがあるが、変更後の階層を選べばOK
+    title: 'Common/Button',
+    component: Button,
 };
 
 export const HelloButton = () => 
@@ -13,15 +12,9 @@ export const HelloButton = () =>
 export const ClickButton = () => 
     <Button>Click!</Button>;
 
-
-
-//Argsの利用
-//Template関数を定義する。
-const Template = ( args ) =>    //argsはコンポーネントへ渡すprops
+const Template = ( args ) =>
     <Button { ...args } />;
 
-//ストーリーのDefault関数をTemplate関数でbindすることで新規の関数として作成する。
-//作成後、argsを利用してpropsの値を設定する。
 export const Default = Template.bind( {} );
 Default.args = {
     children:'Default',
@@ -33,19 +26,13 @@ Danger.args = {
     color: 'danger',
 };
 
-
-//従来の記述に比べて、共通個所を割愛した記述ができるため簡略化することができる。
-//渡すpropsが多くなったり、記述が複雑化している場合に有効
 export const Primary = Template.bind( {} );
 Primary.args = {
     children:'Primary',
     color:'primary',
 };
 
-/*前の記述
-export const Primary = () =>
-    <Button color="primary">Primary</Button>;
-*/
+
 
 export const PrimarySmall = Template.bind( {} );
 PrimarySmall.args = {
@@ -55,10 +42,15 @@ PrimarySmall.args = {
 };
 
 
+//Argsの値は、他のストーリーで利用した値を利用することが可能
+//以下は、PrimarySmallの値を利用したPrimaryLargeの例
+//この2つはcolorが共通している。
 export const PrimaryLarge = Template.bind( {} );
 PrimaryLarge.args = {
+    ...PrimarySmall.args,   //Spread Operatorを使用
     children: 'Large',
-    color:'primary',
     size:'lg',
 };
 
+//共通していない箇所は、上記のように個別で記述
+//他の共通部分は自動的に反映される。
