@@ -12,6 +12,12 @@ export const HelloButton = () =>
 export const ClickButton = () => 
     <Button>Click!</Button>;
 
+
+
+//Argsを使用しているストーリーは、ブラウザ上でコントローラーが使用できる。
+//上記の2つのストーリーは、Argsを使用していないため、ブラウザでコントローラーの使用ができない。
+//PropTypesによる設定をすれば、コントローラーやテキストを手動ではなくpropsで渡される型で設定できる。
+
 const Template = ( args ) =>
     <Button { ...args } />;
 
@@ -41,16 +47,9 @@ PrimarySmall.args = {
     size:'sm',
 };
 
-
-//Argsの値は、他のストーリーで利用した値を利用することが可能
-//以下は、PrimarySmallの値を利用したPrimaryLargeの例
-//この2つはcolorが共通している。
 export const PrimaryLarge = Template.bind( {} );
 PrimaryLarge.args = {
     ...PrimarySmall.args,   //Spread Operatorを使用
     children: 'Large',
     size:'lg',
 };
-
-//共通していない箇所は、上記のように個別で記述
-//他の共通部分は自動的に反映される。

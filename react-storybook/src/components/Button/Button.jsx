@@ -1,8 +1,13 @@
-import './button.css';      //CSSファイルをインポートする。
+import './button.css';
+import PropTypes from 'prop-types';
 
-//propsにcolorを追加、デフォルト値をそのままdefaultとする。
-function Button({ children , color = 'default' , size='base' }){
-    return <button className={`${color} ${size}`} >{ children }</button>;   //複数のpropsを使用する時は、`${ } ${ }` シフト+@
+function Button({ children, color = 'default', size = 'base' }) {
+  return <button className={`${color} ${size}`}>{children}</button>;
 }
 
 export default Button;
+
+Button.propTypes = {
+  color: PropTypes.oneOf(['primary', 'default', 'danger']),
+  size: PropTypes.oneOf(['sm', 'base', 'lg']),
+};
