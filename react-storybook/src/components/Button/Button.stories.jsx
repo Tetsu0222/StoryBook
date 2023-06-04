@@ -17,7 +17,15 @@ export const Default = () =>
     <Button>Default</Button>;
 
 export const Primary = () =>
-    <Button color="primary">Primaly</Button>
+    <Button color="primary">Primary</Button>;
 
 export const Danger = () =>
-    <Button color="danger">Danger!!</Button>
+    <Button color="danger">Danger!!</Button>;
+
+export const PrimarySmall = () => (
+    <Button size="sm" color="primary">primary small</Button>
+);
+
+export const PrimaryLarge = () => (
+    <Button size="lg" color="primary">primary large</Button>
+);
