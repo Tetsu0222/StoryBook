@@ -27,3 +27,11 @@ export const HelloButton = () =>
 
 //main.jsの記述を変更することで、上記の設定は細かく変更が可能
 //module.exports = { ... } 内部の記述を変更すれば設定も変更可能
+
+
+//ボタンに表示される文字を変更する。
+export const ClickButton = () => 
+    <Button>Click!</Button>;
+
+//HelloButtonに加えて、ClickButtonもメニューに表示される。
+//追加したものがどのように反映されているのかだけでなく、他との比較も視覚的に可能
