@@ -12,3 +12,12 @@ export const HelloButton = () =>
 
 export const ClickButton = () => 
     <Button>Click!</Button>;
+
+export const Default = () => 
+    <Button>Default</Button>;
+
+export const Primary = () =>
+    <Button color="primary">Primaly</Button>
+
+export const Danger = () =>
+    <Button color="danger">Danger!!</Button>
