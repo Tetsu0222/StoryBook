@@ -2,11 +2,14 @@
 import Button from '../Button/Button';
 
 
-//argTypesによる設定
+//handClick関数だけ検知できるようにするため、metadataの中にargTypesの設定を実行
 export default {
     title: 'Common/Test',
     component: Button,
     argTypes: {
+      handleClick:{
+        action:true
+      },
       color: {
         options: ['primary', 'default', 'danger'],
         control: { type: 'radio' },

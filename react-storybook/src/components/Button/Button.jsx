@@ -1,10 +1,12 @@
 import './button.css';
 import PropTypes from 'prop-types';
 
-//onClick関数をコンポーネントのButton要素へ追加
-function Button({ children, color = 'default', size = 'base', onClick }) {
+//関数名をhandleClickへ変更
+//onから始まる関数でなければ、初期設定で検知することができないため、このままだとイベント発火しない。
+//設定は、preview.jsファイルでactionsに記述されている。
+function Button({ children, color = 'default', size = 'base', handleClick }) {
     return (
-      <button className={`${color} ${size}`} onClick={onClick}>
+      <button className={`${color} ${size}`} onClick={handleClick}>
         {children}
       </button>
     );
@@ -12,7 +14,6 @@ function Button({ children, color = 'default', size = 'base', onClick }) {
 
 export default Button;
 
-//propTypesにonClickで発火するように記述を追記
 Button.propTypes = {
     color: PropTypes.oneOf(['primary', 'default', 'danger']),
     size: PropTypes.oneOf(['sm', 'base', 'lg']),
