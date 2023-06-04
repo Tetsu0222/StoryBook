@@ -6,7 +6,6 @@ import Button from '../Button/Button';
 export default {
     title: 'Common/Test',
     component: Button,
-    //ここからargTypesのための追記
     argTypes: {
       color: {
         options: ['primary', 'default', 'danger'],
@@ -14,7 +13,11 @@ export default {
       },
       size: {
         options: ['sm', 'base', 'lg'],
-        control: { type: 'radio' }, //radioやselectで選択方式を変更可能
+        control: { type: 'radio' },
+      },
+      //背景色を追記、コントローラーでカラーピックが表示され、背景色を変更できる。
+      backgroundColor:{
+        control:{ type:'color' },
       },
     },
   };

@@ -1,7 +1,14 @@
 import './button.css';
 
-function Button({ children, color = 'default', size = 'base' }) {
-  return <button className={`${color} ${size}`}>{children}</button>;
+//背景色をpropsに追加
+function Button({ children ,
+                    color = 'default' ,
+                    size = 'base' ,
+                    backgroundColor ,
+                }) {
+  return <button className={`${color} ${size}`}
+                    style={ backgroundColor && { backgroundColor }}>
+                    { children }</button>;
 }
 
 export default Button;
