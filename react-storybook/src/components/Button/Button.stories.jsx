@@ -1,22 +1,29 @@
 
 import Button from '../Button/Button';
 
-export default{
-    title: 'Common/Button',
+
+//argTypesによる設定
+export default {
+    title: 'Common/Test',
     component: Button,
-};
+    //ここからargTypesのための追記
+    argTypes: {
+      color: {
+        options: ['primary', 'default', 'danger'],
+        control: { type: 'radio' },
+      },
+      size: {
+        options: ['sm', 'base', 'lg'],
+        control: { type: 'radio' }, //radioやselectで選択方式を変更可能
+      },
+    },
+  };
 
 export const HelloButton = () => 
     <Button>Hello World!</Button>;
 
 export const ClickButton = () => 
     <Button>Click!</Button>;
-
-
-
-//Argsを使用しているストーリーは、ブラウザ上でコントローラーが使用できる。
-//上記の2つのストーリーは、Argsを使用していないため、ブラウザでコントローラーの使用ができない。
-//PropTypesによる設定をすれば、コントローラーやテキストを手動ではなくpropsで渡される型で設定できる。
 
 const Template = ( args ) =>
     <Button { ...args } />;
